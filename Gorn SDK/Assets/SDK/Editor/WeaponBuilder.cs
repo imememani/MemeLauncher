@@ -21,7 +21,19 @@ public class WeaponBuilder: EditorWindow
 
         if (GUILayout.Button("BUILD MANIFEST"))
         {
-            File.WriteAllText($"{Application.dataPath}\\AssetBundles\\Weapon.weaponmanifest", JsonConvert.SerializeObject(weaponDefinition.BuildManifest(), Formatting.Indented));
+            string bundleDir = $"{Application.dataPath}\\AssetBundles";
+
+            if (!Directory.Exists(bundleDir))
+                Directory.CreateDirectory(bundleDir);
+            else
+            {
+                Directory.Delete(bundleDir, true);
+                Directory.CreateDirectory(bundleDir);
+            }
+
+            File.WriteAllText($"{Application.dataPath}\\AssetBundles\\{weaponDefinition.ID}.weaponmanifest", JsonConvert.SerializeObject(weaponDefinition.BuildManifest(), Formatting.Indented));
+
+            AssetDatabase.Refresh();
         }
 
         if (GUILayout.Button("BUILD ALL"))
