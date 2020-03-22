@@ -586,11 +586,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Katana
       objectReference: {fileID: 0}
-    - target: {fileID: 570005006148103806, guid: e0f863fc98d7e4340a733fbabece7b87,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2987971767140478920, guid: e0f863fc98d7e4340a733fbabece7b87,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -644,6 +639,18 @@ PrefabInstance:
     - target: {fileID: 2987971767140478920, guid: e0f863fc98d7e4340a733fbabece7b87,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1499516847, guid: e0f863fc98d7e4340a733fbabece7b87, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1537063869, guid: e0f863fc98d7e4340a733fbabece7b87, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1802471595, guid: e0f863fc98d7e4340a733fbabece7b87, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
