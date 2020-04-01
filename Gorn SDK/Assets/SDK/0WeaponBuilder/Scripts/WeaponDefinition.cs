@@ -5,7 +5,11 @@ using UnityEngine;
 public class WeaponDefinition: MonoBehaviour
 {
     public string ID;
+    [Space]
     public string AssetBundleName;
+    [Space]
+    [Tooltip("Should this asset spanw in the Arena?")]
+    public bool DoSawnInArena = true;
 
     public WeaponManifest BuildManifest()
     {
@@ -15,6 +19,7 @@ public class WeaponDefinition: MonoBehaviour
         return new WeaponManifest
         {
             ID = ID,
+            DoSpawnInArena = DoSawnInArena,
             BundleID = AssetBundleName,
             Handles = handles.Select(h => h.GetAsHandleGroup()).ToArray(),
             Damagers = damagers.Select(d => d.GetAsDamagerGroup()).ToArray()
@@ -25,6 +30,8 @@ public class WeaponDefinition: MonoBehaviour
 public class WeaponManifest
 {
     public string ID { get; set; }
+
+    public bool DoSpawnInArena { get; set; }
 
     public string BundleID { get; set; }
 

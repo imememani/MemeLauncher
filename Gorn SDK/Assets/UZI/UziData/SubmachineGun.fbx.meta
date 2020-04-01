@@ -1,0 +1,154 @@
+fileFormatVersion: 2
+guid: 11604b6592771e049af136d2cae807b4
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: bullet_case
+    100002: ejection_port
+    100004: extd1
+    100006: extd2
+    100008: gun
+    100010: lever
+    100012: mag
+    100014: mag_release
+    100016: silencer
+    100018: //RootNode
+    100020: trigger
+    100022: trigger_fire_mode
+    100024: trigger_safety
+    400000: bullet_case
+    400002: ejection_port
+    400004: extd1
+    400006: extd2
+    400008: gun
+    400010: lever
+    400012: mag
+    400014: mag_release
+    400016: silencer
+    400018: //RootNode
+    400020: trigger
+    400022: trigger_fire_mode
+    400024: trigger_safety
+    2300000: bullet_case
+    2300002: ejection_port
+    2300004: extd1
+    2300006: extd2
+    2300008: gun
+    2300010: lever
+    2300012: mag
+    2300014: mag_release
+    2300016: silencer
+    2300018: trigger
+    2300020: trigger_fire_mode
+    2300022: trigger_safety
+    3300000: bullet_case
+    3300002: ejection_port
+    3300004: extd1
+    3300006: extd2
+    3300008: gun
+    3300010: lever
+    3300012: mag
+    3300014: mag_release
+    3300016: silencer
+    3300018: trigger
+    3300020: trigger_fire_mode
+    3300022: trigger_safety
+    4300000: trigger
+    4300002: gun
+    4300004: ejection_port
+    4300006: mag
+    4300008: extd1
+    4300010: mag_release
+    4300012: trigger_fire_mode
+    4300014: trigger_safety
+    4300016: extd2
+    4300018: silencer
+    4300020: lever
+    4300022: bullet_case
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 4
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
