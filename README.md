@@ -1,4 +1,4 @@
-# MemeLauncher - [![Downlad][download-badge]][download-link] | [![Paypal][paypal-badge]][paypal-link] | [![Patreon][patreon-badge]][patreon-link]  | [![Discord][discord-badge]][discord-link]
+# [![Downlad][download-badge]][download-link] | [![Paypal][paypal-badge]][paypal-link] | [![Patreon][patreon-badge]][patreon-link]  | [![Discord][discord-badge]][discord-link]
 
 [download-badge]: https://img.shields.io/badge/Download-Latest-green
 [download-link]: https://github.com/imememani/MemeLauncher/releases
