@@ -23,7 +23,7 @@ If you're looking for sauce, the bottle is empty. My code is obfuscated and the 
 
 ![alt text][Screenie]
 
-[Screenie]: https://i.imgur.com/FZuvvtd.png
+[Screenie]: https://i.imgur.com/U6RfMob.png
 
 
 # All rights reserved to the original creator .MemeMan#4489.
