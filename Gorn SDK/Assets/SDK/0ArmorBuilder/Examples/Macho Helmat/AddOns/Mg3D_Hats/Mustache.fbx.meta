@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 66de3e2ecc3e50a4485c7c111db95565
+guid: 67f444199e01f7341adb39837f8c9ba2
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Glovedhand_0
     400000: //RootNode
-    400002: Glovedhand_0
-    2100000: Glovedhand_0Mat
-    2300000: Glovedhand_0
-    3300000: Glovedhand_0
-    4300000: Glovedhand_0
+    2100000: 01 - Default
+    2100002: 01 - Default.005
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: mustache-7
+    4300002: Mustache
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -70,7 +70,7 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   importAnimation: 1
