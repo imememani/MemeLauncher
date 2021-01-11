@@ -59,6 +59,15 @@ public static class BundleUtilities
     }
 
     /// <summary>
+    /// Moves and cleans a folder.
+    /// </summary>
+    public static void MoveDirectoryAndClean(string directory, string newDirectory)
+    {
+        Directory.Move(directory, newDirectory);
+        ClearFolderExcess(newDirectory);
+    }
+
+    /// <summary>
     /// Removes any unneeded build files.
     /// </summary>
     public static void ClearFolderExcess(string directory)

@@ -19,34 +19,49 @@ public class ArmorBuilder : Editor
 
     private SlotReference dummy;
 
+    private ArmorSlot lastSlot;
+
+    private bool canBuild = true;
+
+    private bool IsShowingBoundries { get => dummy.GetSlot(def.slot).slotObj.GetChild(0).gameObject.activeInHierarchy; }
+
     public override void OnInspectorGUI()
     {
         headerLabel = new GUIStyle(GUI.skin.label)
         {
             alignment = TextAnchor.MiddleCenter,
             fontStyle = FontStyle.Bold,
-            fontSize = 14
+            fontSize = 12
         };
 
         def = (ArmorDefenition)target;
+        lastSlot = def.slot;
 
         GetOrLoadDummy();
         AlignPieceToMesh();
 
         BeginVertical(EditorStyles.helpBox);
 
+        DrawLine("Name Your Armor");
+        def.name = TextField(new GUIContent("Name", "The uh...Name of you armor piece?"), def.name);
+        def.armorSetName = TextField(new GUIContent("Armor Set Name", "This is used to group all armor pieces with this name into the same folder for exporting."), def.armorSetName);
+
         DrawLine("Options");
         DrawOptions();
 
+        DrawLine("Statistics");
         if (def.type != ArmorType.Cosmetic)
         {
-            DrawLine();
-
-            DrawLine("Statistics");
             DrawStats();
         }
+        def.spawnChance = IntSlider(new GUIContent("Spawn Chance", "How likely is this piece of armor to spawn?"), def.spawnChance, 1, 100);
 
         DrawLine();
+        Space();
+        Space();
+        Space();
+        Space();
+        Space();
 
         DrawLine("Export");
 
@@ -57,6 +72,12 @@ public class ArmorBuilder : Editor
         EndVertical();
 
         HelpBox("Hover over the settings to see what they do!", MessageType.Info);
+
+        Space();
+        Space();
+        Space();
+        DrawLine();
+
         EnsureSettingsDontConflict();
     }
 
@@ -88,22 +109,62 @@ public class ArmorBuilder : Editor
     {
         def.armorHealth = FloatField(new GUIContent("Health", "How much health this piece has before it breaks."), def.armorHealth);
         def.weight = Slider(new GUIContent("Weight", "How heavy is this piece of armor?"), def.weight, 0.1f, 250);
-        def.spawnChance = IntSlider(new GUIContent("Spawn Chance", "How likely is this piece of armor to spawn?"), def.spawnChance, 1, 100);
     }
 
     private void DrawExport()
     {
-        if (GUILayout.Button("Export", EditorStyles.toolbarButton))
+        if (GUILayout.Button(!canBuild ? "Export (FIX ERRORS)" : "Export", EditorStyles.toolbarButton))
         {
-            SavePrefab();
+            if (canBuild)
+            {
+                SavePrefab();
 
-            BundleUtilities.ExportSelectedBundles(out string output, "armor", PrefabUtility.GetPrefabAssetPathOfNearestInstanceRoot(target));
-            def.BuildManifest().ExportManifest(Path.Combine(output, $"{def.name.ToLowerInvariant().Replace(" ", "")}.manifest"));
-            BundleUtilities.GroupFilesToFolder(output, Path.Combine(output, def.name), def.name.Replace(" ", ""));
+                BundleUtilities.ExportSelectedBundles(out string output, "armor", PrefabUtility.GetPrefabAssetPathOfNearestInstanceRoot(target));
+                def.BuildManifest().ExportManifest(Path.Combine(output, $"{def.name.ToLowerInvariant().Replace(" ", "")}.manifest"));
+
+                if (string.IsNullOrEmpty(def.armorSetName))
+                    BundleUtilities.GroupFilesToFolder(output, Path.Combine(SDKEditor.CustomArmorFolder, def.name), def.name.Replace(" ", ""));
+                else
+                {
+                    BundleUtilities.GroupFilesToFolder(output, Path.Combine(SDKEditor.CustomArmorFolder, def.armorSetName, def.name), def.name.Replace(" ", ""));
+                }
+
+                EditorUtility.DisplayDialog("Exported", "Your piece has been exported. You can launch GORN and test.", "Grucci");
+            }
+            else
+            {
+                EditorUtility.DisplayDialog("ERROR", "You have errors you need to fix before you can export.", "FUUUUUUUUUU");
+            }
         }
         if (GUILayout.Button("Save Prefab", EditorStyles.toolbarButton))
         {
             SavePrefab();
+        }
+        if (GUILayout.Button(IsShowingBoundries ? "Hide Boundries" : "Show Boundries", EditorStyles.toolbarButton))
+        {
+            if (IsShowingBoundries)
+            {
+                SetBoundries(false, def.slot);
+            }
+            else
+            {
+                SetBoundries(true, def.slot);
+            }
+        }
+    }
+
+    private void OnDestroy()
+    {
+        SetBoundries(false, def.slot);
+    }
+
+    private void SetBoundries(bool state, ArmorSlot slot)
+    {
+        Transform slotObj = dummy.GetSlot(slot).slotObj;
+
+        for (int i = 0; i < slotObj.childCount; i++)
+        {
+            slotObj.GetChild(i).gameObject.SetActive(state);
         }
     }
 
@@ -156,7 +217,12 @@ public class ArmorBuilder : Editor
 
         def.armorHealth = Mathf.Clamp(def.armorHealth, 0, Mathf.Infinity);
 
-        DrawLine("Messages");
+        if (lastSlot != def.slot)
+        {
+            SetBoundries(false, lastSlot);
+        }
+
+        DrawLine("Log");
         int messageCount = 0;
 
         if (def.type == ArmorType.NoneCosmetic && def.GetComponentsInChildren<Collider>().Length == 0)
@@ -168,6 +234,26 @@ public class ArmorBuilder : Editor
         if (def.spawnChance < 10)
         {
             HelpBox("Your armor piece has a very rare spawn chance, is this intentional?", MessageType.Warning);
+            messageCount++;
+        }
+
+        if (def.name == "Armor Piece")
+        {
+            HelpBox("Your piece of armor will be named the default 'Armor Piece' is this intentional?", MessageType.Warning);
+            messageCount++;
+        }
+
+        if (string.IsNullOrEmpty(SDKEditor.settings.gornFolder))
+        {
+            HelpBox("You haven't selected a valid GORN folder.", MessageType.Error);
+            canBuild = false;
+            messageCount++;
+        }
+
+        if (string.IsNullOrEmpty(SDKEditor.CustomArmorFolder))
+        {
+            HelpBox("You haven't installed the custom armor framework.", MessageType.Error);
+            canBuild = false;
             messageCount++;
         }
 

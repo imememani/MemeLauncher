@@ -5,9 +5,10 @@ namespace CustomArmorFramework
 {
     public class ArmorDefenition : MonoBehaviour
     {
-        public MeshSupport suppportedMesh;
+        public string armorSetName = "";
+        public MeshSupport suppportedMesh = MeshSupport.Gornie;
 
-        public ArmorSlot slot;
+        public ArmorSlot slot = ArmorSlot.Helmat;
         public ArmorSide side;
         public ArmorSide createdSide = ArmorSide.Left;
         public ArmorType type;

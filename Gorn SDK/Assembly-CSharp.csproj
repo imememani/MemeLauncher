@@ -70,7 +70,6 @@
     <Compile Include="Assets\SDK\0WeaponBuilder\Scripts\Damager.cs" />
     <Compile Include="Assets\SDK\0WeaponBuilder\Scripts\Handle.cs" />
     <Compile Include="Assets\SDK\0WeaponBuilder\Scripts\WeaponDefinition.cs" />
-    <None Include="Assets\SDK\0ArmorBuilder\Examples\Macho Helmat\AddOns\Mg3D_Hats\README.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:/Unity/Projects/MemeLauncher/Gorn SDK/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

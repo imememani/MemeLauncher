@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="Assets\SDK\Editor\ArmorBuilder.cs" />
     <Compile Include="Assets\SDK\Editor\GUIBuilder.cs" />
+    <Compile Include="Assets\SDK\Editor\SDK Settings\SDKEditor.cs" />
     <Compile Include="Assets\SDK\Editor\WeaponBuilder.cs" />
     <Compile Include="Assets\SDK\Editor\WepDefEdtr.cs" />
     <Compile Include="Assets\SDK\Scripts\Editor\BundleUtilities.cs" />
