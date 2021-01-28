@@ -63,13 +63,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Ignore\MemeLoader\PreloadHandler.cs" />
     <Compile Include="Assets\SDK\0ArmorBuilder\Scripts\ArmorDefenition.cs" />
     <Compile Include="Assets\SDK\0ArmorBuilder\Scripts\ArmorInformation.cs" />
     <Compile Include="Assets\SDK\0ArmorBuilder\Scripts\Globals.cs" />
     <Compile Include="Assets\SDK\0ArmorBuilder\Scripts\SlotReference.cs" />
+    <Compile Include="Assets\SDK\0GUIBuilder\Scripts\GUIDefenition.cs" />
     <Compile Include="Assets\SDK\0WeaponBuilder\Scripts\Damager.cs" />
     <Compile Include="Assets\SDK\0WeaponBuilder\Scripts\Handle.cs" />
     <Compile Include="Assets\SDK\0WeaponBuilder\Scripts\WeaponDefinition.cs" />
+    <None Include="Assets\Ignore\MemeLoader\NoZUI.shader" />
+    <None Include="Assets\Ignore\GIKVR\StandardFade.shader" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:/Unity/Projects/MemeLauncher/Gorn SDK/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

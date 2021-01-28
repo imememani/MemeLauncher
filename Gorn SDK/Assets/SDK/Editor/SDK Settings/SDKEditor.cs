@@ -9,10 +9,18 @@ public class SDKEditor : EditorWindow
 {
     private static SDKEditor instance;
 
-    private static string settingsFile => Path.Combine(Application.dataPath, "SDK", "Editor", "SDK Settings", "Settings.sdk");
+    private static string SettingsFileLocation { get => Path.Combine(Application.dataPath, "SDK", "Editor", "SDK Settings", "Settings.sdk"); }
 
     public static Settings settings;
 
+    /// <summary>
+    /// ~/GORN
+    /// </summary>
+    public static string GORNFolder { get => settings.gornFolder; }
+
+    /// <summary>
+    /// GORN/Mods/Custom Armor Framework/Custom Armor
+    /// </summary>
     public static string CustomArmorFolder
     {
         get
@@ -25,6 +33,10 @@ public class SDKEditor : EditorWindow
             return path;
         }
     }
+
+    /// <summary>
+    /// GORN/Mods/MemesWeaponExtender/Custom Weapons (Planned to rename to: Custom Weapon Framework)
+    /// </summary>
     public static string CustomWeaponFolder
     {
         get
@@ -37,6 +49,10 @@ public class SDKEditor : EditorWindow
             return path;
         }
     }
+
+    /// <summary>
+    /// GORN/Mods/Custom Level Framework/Custom Levels
+    /// </summary>
     public static string CustomLevelFolder
     {
         get
@@ -50,6 +66,26 @@ public class SDKEditor : EditorWindow
         }
     }
 
+    /// <summary>
+    /// Is the provided GORN folder valid for use?
+    /// </summary>
+    public static bool IsGORNFolderValid { get => settings != null && Directory.Exists(settings.gornFolder); }
+
+    /// <summary>
+    /// Is the Custom Armor Framework installed?
+    /// </summary>
+    public static bool IsArmorExtenderInstalled { get => IsGORNFolderValid && Directory.Exists(CustomArmorFolder); }
+
+    /// <summary>
+    /// Is the Custom Weapons Framework installed?
+    /// </summary>
+    public static bool IsWeaponExtenderInstalled { get => IsGORNFolderValid && Directory.Exists(CustomWeaponFolder); }
+
+    /// <summary>
+    /// Is the Custom Levels Framework installed?
+    /// </summary>
+    public static bool IsLevelExtenderInstalled { get => IsGORNFolderValid && Directory.Exists(CustomLevelFolder); }
+
     [MenuItem("GORN SDK/Settings")]
     public static void GetWindow()
     {
@@ -62,7 +98,7 @@ public class SDKEditor : EditorWindow
 
     static SDKEditor()
     {
-        if (!File.Exists(settingsFile))
+        if (!File.Exists(SettingsFileLocation))
         {
             GetWindow();
         }
@@ -79,9 +115,9 @@ public class SDKEditor : EditorWindow
 
     private void Initialize()
     {
-        if (!File.Exists(settingsFile))
+        if (!File.Exists(SettingsFileLocation))
         {
-            File.Create(settingsFile).Close();
+            File.Create(SettingsFileLocation).Close();
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
         }
@@ -125,12 +161,12 @@ public class SDKEditor : EditorWindow
 
     private static void Load()
     {
-        settings = JsonConvert.DeserializeObject<Settings>(File.ReadAllText(settingsFile)) ?? new Settings();
+        settings = JsonConvert.DeserializeObject<Settings>(File.ReadAllText(SettingsFileLocation)) ?? new Settings();
     }
 
     private static void Save()
     {
-        File.WriteAllText(settingsFile, JsonConvert.SerializeObject(settings, Formatting.Indented));
+        File.WriteAllText(SettingsFileLocation, JsonConvert.SerializeObject(settings, Formatting.Indented));
     }
 
     public class Settings

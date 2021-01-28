@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/SDK/0ArmorBuilder/Armor Builder.unity
+- path: Assets/SDK/0GUIBuilder/GUI Builder Example.unity
   isLoaded: 1
   isActive: 1

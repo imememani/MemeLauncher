@@ -48,6 +48,7 @@ public static class BundleUtilities
 
             if (fileInfo.Name.ToLowerInvariant().Contains(fileContains))
             {
+                File.Delete(Path.Combine(newDirectory, fileInfo.Name));
                 File.Move(file, Path.Combine(newDirectory, fileInfo.Name));
             }
         }
@@ -115,7 +116,7 @@ public static class BundleUtilities
             }
             FileInfo file = new FileInfo(path);
 
-            importer.SetAssetBundleNameAndVariant(file.Name.Split('.').First().Replace(" ", ""), "armor");
+            importer.SetAssetBundleNameAndVariant(file.Name.Split('.').First().Replace(" ", ""), overrideExtension ?? importer.assetBundleVariant);
 
             string bundleName = importer.assetBundleName;
             string bundleVariant = importer.assetBundleVariant;

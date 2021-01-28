@@ -8,12 +8,6 @@ using static UnityEditor.EditorGUILayout;
 [CustomEditor(typeof(ArmorDefenition))]
 public class ArmorBuilder : Editor
 {
-    [MenuItem("GameObject/Armor Framework/Create Armor Piece", false, -1)]
-    public static void CreateNewPiece()
-    {
-        Selection.activeObject = new GameObject("Armor Piece").AddComponent<ArmorDefenition>();
-    }
-
     private ArmorDefenition def;
     private GUIStyle headerLabel;
 
