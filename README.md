@@ -16,7 +16,7 @@
 This software is used to inject my custom built mod loader into GORNs main assembly. Also known as the **MemeLoader**. This tool is known as the **MemeLauncher** which is a mod manager and injection tool, it will also help mod creators mod GORN by providing a built-in project builder for Visual Studio, it will handle references and even create a bat file to move your assemblies on build. You can delete it after injection if you don't want to use it.
 
 ## Backstory
-My motivation behind this was that the developers would not add a feature to the game after an update to prevent enemies exploding, even after months of requests to make it optional in custom games, so myself and the community worked towards building the Gorn Modding Discord! On the 8th of November 2018, 2 days after the loader released to the public, the server was created and stands strong all this time later at a surprising **14,850+** member count!
+My motivation behind this was that the developers would not add a feature to the game after an update to prevent enemies exploding, even after months of requests to make it optional in custom games, so myself and the community worked towards building the Gorn Modding Discord! On the 8th of November 2018, 2 days after the loader released to the public, the server was created and still stands to this day.
 
 ![alt text][Screenie]
 
